@@ -1,4 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:ruang_event/pages/favorite_page.dart';
+import 'package:ruang_event/pages/mbkm_page.dart';
+import 'package:ruang_event/pages/my_event_page.dart';
+import 'package:ruang_event/pages/univ.dart';
+import 'package:ruang_event/slide_menu.dart';
+import 'package:ruang_event/pages/main_menu.dart';
+
+/*
+===============================================================================
+Frame Name    : Core Frame App
+-------------------------------------------------------------------------------
+Team Handler  : Gede Yuda Aditya              [ 2015051003 ] L
+                Alfiansyah                    [ 2015051023 ]
+                Putri Eodytha Aisya Purnomo   [ 2015051046 ]
+                Kadek Deva Pramana Putra      [ 2015051071 ]
+                Made Edi Irawan               [ 1915051066 ]
+
+Class         : 4A
+Prodi         : PTI
+-------------------------------------------------------------------------------
+Note & Rule   :
+1. [Yuda] ==> Jangan ubah bagian code file ini tanpa konfirmasi ke [Yuda].
+2. [Yuda] ==> Tidak boleh mengusik frame milik orang lain (kecuali tindakan
+              diperbolehkan oleh yang punya).
+3. [Yuda] ==> Konfirmasi jika ingin melakukan Marge atau penggabungan.
+4. [Yuda] ==> Saling bantu ketika ada kesulitan.
+===============================================================================
+*/
 
 void main() {
   runApp(const MyApp());
@@ -11,35 +39,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Ruang Event',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+          primaryColor: Colors.blue, primaryColorDark: Colors.deepPurple),
+      home: const MyHomePage(title: 'Ruang Event'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -48,68 +58,54 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _selectedNavbar = 2;
 
-  void _incrementCounter() {
+  void _changeSelectedNavBar(int index) {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      _selectedNavbar = index;
     });
   }
 
+  static final List<Widget> _pages = <Widget>[
+    const UnivPage(),
+    const FavoritePage(),
+    const MainMenu(),
+    const MyEventPage(),
+    const MBKMPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        backgroundColor: const Color.fromARGB(255, 13, 93, 158),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      drawer: const DrawerWidget(),
+      body: IndexedStack(
+        index: _selectedNavbar,
+        children: _pages,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.event), label: 'Event'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), label: 'Favorite'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.flag), label: 'My Event'),
+          BottomNavigationBarItem(icon: Icon(Icons.group), label: 'MBKM'),
+        ],
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _selectedNavbar,
+        backgroundColor: const Color.fromARGB(255, 13, 93, 158),
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.white,
+        showUnselectedLabels: false,
+        onTap: _changeSelectedNavBar,
+      ),
     );
   }
 }
