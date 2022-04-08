@@ -30,9 +30,7 @@ class UnivPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const <Widget>[
-          Text(
-            'Just Univ Page... ;)',
-          ),
+          Text('Edit'),
         ],
       ),
     );
