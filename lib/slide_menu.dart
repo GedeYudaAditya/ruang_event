@@ -86,23 +86,48 @@ Widget _drawerHeader() {
   );
 }
 
-Widget _drawerItem(
-    {IconData? icon, required String text, GestureTapCallback? onTap}) {
-  return ListTile(
-    title: Row(
-      children: <Widget>[
-        Icon(icon),
-        Padding(
-          padding: const EdgeInsets.only(left: 25.0),
-          child: Text(
-            text,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+Widget _buildDrawer() {
+      return SizedBox(
+        //membuat menu drawer
+        child: Drawer(
+          
+          // backgroundColor: Color(0xff2196f3),
+          //membuat list, 
+          //list digunakan untuk melakukan scrolling jika datanya terlalu panjang
+          child: ListView(
+            padding: EdgeInsets.zero,
+            //di dalam listview ini terdapat beberapa widget drawable
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                currentAccountPicture: 
+                CircleAvatar(
+                radius: 30.0,
+                backgroundImage:
+                    NetworkImage('https://lh3.googleusercontent.com/a-/AOh14Ghp-fqVEHZt5YfYQf49AYoBiCs1Gu8orvqni9Sx=s96-c-rg-br100'),
+                // backgroundColor: Colors.transparent,
+              ),
+                accountName: Text("Kelompok 2"), 
+                accountEmail: Text("kelompok2@undiksha.ac.id"),
+                // //memberikan background
+                // decoration: BoxDecoration(
+                //   image: DecorationImage(
+                //     image: AssetImage('assets/img/bg.jpg'), 
+                //     fit: BoxFit.cover
+                //   )
+                // ),
+              ), 
+              //membuat list menu
+              ListTile( leading: Icon(Icons.home_filled), title: Text("Home"), onTap: (){},),
+              ListTile( leading: Icon(Icons.favorite), title: Text("Favorite"), onTap: (){},), 
+              ListTile( leading: Icon(Icons.account_balance), title: Text("Univercity Events"), onTap: (){},), 
+              ListTile( leading: Icon(Icons.emoji_flags), title: Text("My Events"), onTap: (){},),
+              ListTile( leading: Icon(Icons.share), title: Text("MBKM Programs"), onTap: (){},),
+              ListTile( leading: Icon(Icons.settings), title: Text("Settings"), onTap: (){},),
+              Divider(height:  1, thickness: 1),
+              ListTile( leading: Icon(Icons.logout), title: Text("Logout"), onTap: (){},),
+            ],
           ),
         ),
-      ],
-    ),
-    onTap: onTap,
-  );
+      );
+    }
 }
