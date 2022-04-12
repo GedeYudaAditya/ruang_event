@@ -26,6 +26,15 @@ class MainMenu extends StatefulWidget {
 class _MainMenuState extends State<MainMenu> {
   late Map _tgl;
 
+  final List konten = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+  ];
+
   @override
   void initState() {
     _tgl = _formatDateTime(DateTime.now());
@@ -36,8 +45,9 @@ class _MainMenuState extends State<MainMenu> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.all(10),
-        child: ListView(children: <Widget>[
+      padding: const EdgeInsets.all(10),
+      child: ListView(
+        children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -115,11 +125,155 @@ class _MainMenuState extends State<MainMenu> {
             ),
           ),
           Container(
+            alignment: Alignment.centerLeft,
             padding: const EdgeInsets.all(5),
-            child: const Text('''Lorem Ipsum adalah contoh teks atau ...''',
-                style: TextStyle(fontSize: 16)),
+            child: const Text("What's Now",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                )),
           ),
-        ]));
+          SizedBox(
+            height: 200.0,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: Column(children: [
+                    Container(
+                        width: 200,
+                        height: 130,
+                        // padding: const EdgeInsets.all(10),
+                        alignment: Alignment.center,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  "images/ral.jpg",
+                                ),
+                                fit: BoxFit.cover))),
+                    Container(
+                      width: 200,
+                      height: 60,
+                      alignment: Alignment.topLeft,
+                      padding: const EdgeInsets.all(10),
+                      child: const Text("Fluffy Boy",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Gill Sans MT")),
+                    )
+                  ]),
+                );
+              },
+              itemCount: konten.length,
+            ),
+          ),
+          Container(
+            alignment: Alignment.centerLeft,
+            padding: const EdgeInsets.all(5),
+            child: const Text("Popular Events",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                )),
+          ),
+          SizedBox(
+            height: 200.0,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: Column(children: [
+                    Container(
+                        width: 200,
+                        height: 130,
+                        // padding: const EdgeInsets.all(10),
+                        alignment: Alignment.center,
+                        decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  "images/ral.jpg",
+                                ),
+                                fit: BoxFit.cover))),
+                    Container(
+                      width: 200,
+                      height: 60,
+                      alignment: Alignment.topLeft,
+                      padding: const EdgeInsets.all(10),
+                      child: const Text("Fluffy Boy",
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Gill Sans MT")),
+                    )
+                  ]),
+                );
+              },
+              itemCount: konten.length,
+            ),
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(5),
+            child: const Text("Menu",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                )),
+          ),
+          Container(
+              margin: const EdgeInsets.only(top: 20),
+              height: 200,
+              child: GridView.count(
+                crossAxisCount: 3,
+                children: <Widget>[
+                  Container(
+                      height: 200,
+                      margin: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.orange,
+                      child: Column(
+                        children: [
+                          Icon(Icons.person),
+                          Text(
+                            "Account",
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      )),
+                  Container(
+                      height: 200,
+                      margin: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.blue,
+                      child: Column(
+                        children: const [
+                          Icon(Icons.event),
+                          Text(
+                            "Event University",
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      )),
+                  Container(
+                      height: 200,
+                      margin: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(20),
+                      color: Colors.purple,
+                      child: Column(
+                        children: const [
+                          Icon(Icons.settings),
+                          Text(
+                            "Setting",
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      )),
+                ],
+              ))
+        ],
+      ),
+    );
   }
 
   void _getTime() {
