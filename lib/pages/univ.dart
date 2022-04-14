@@ -22,16 +22,47 @@ Note          :
 */
 
 class UnivPage extends StatelessWidget {
-  const UnivPage({Key? key}) : super(key: key);
-
+  UnivPage({Key? key}) : super(key: key);
+  var Universitas = {
+    "name": [
+      "Universitas Pendidikan Ganesha",
+      "Universitas Brawijaya",
+      "Universitas Padjajaran ",
+      "Universitas Gadjah Mada",
+    ],
+    "pic": ["undiksha.png", "padjajaran.png", "brawijaya.png", "ugm.png"]
+  };
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const <Widget>[
-          Text('Edit'),
-        ],
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: ListView.builder(
+        itemBuilder: (context, index) {
+          return Card(
+              color: Color.fromARGB(255, 188, 192, 198),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(right: 10),
+                      child: Image.asset(
+                          'assets/images/' + Universitas["pic"]![index],
+                          height: 50,
+                          width: 50),
+                    ),
+                    Container(
+                        alignment: Alignment.centerLeft,
+                        height: 60,
+                        child: Text(
+                          Universitas["name"]![index],
+                          style: TextStyle(fontSize: 20),
+                        )),
+                  ],
+                ),
+              ));
+        },
+        itemCount: Universitas["name"]!.length,
       ),
     );
   }
