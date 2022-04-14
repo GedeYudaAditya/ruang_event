@@ -3,6 +3,7 @@ import 'package:ruang_event/pages/favorite_page.dart';
 import 'package:ruang_event/pages/mbkm_page.dart';
 import 'package:ruang_event/pages/my_event_page.dart';
 import 'package:ruang_event/pages/univ.dart';
+import 'package:ruang_event/pages/register.dart';
 import 'package:ruang_event/slide_menu.dart';
 import 'package:ruang_event/pages/main_menu.dart';
 
@@ -67,7 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static final List<Widget> _pages = <Widget>[
-    const UnivPage(),
+    UnivPage(),
+    const RegisterPage(),
     const FavoritePage(),
     const MainMenu(),
     const MyEventPage(),
