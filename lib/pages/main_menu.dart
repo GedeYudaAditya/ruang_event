@@ -97,16 +97,17 @@ class _MainMenuState extends State<MainMenu> {
                   )
                 ],
               ),
-              Container(
-                padding: const EdgeInsets.only(left: 5),
-                child: Text(_tgl['time'] + " WITA",
-                    style: const TextStyle(
-                        color: Colors.blue,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "Gill Sans MT")),
-              ),
             ],
+          ),
+          Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.all(5),
+            child: Text(_tgl['time'] + " WITA",
+                style: const TextStyle(
+                    color: Colors.blue,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Gill Sans MT")),
           ),
           const Divider(
             height: 2.0,
@@ -222,8 +223,7 @@ class _MainMenuState extends State<MainMenu> {
                 )),
           ),
           Container(
-              margin: const EdgeInsets.only(top: 20),
-              height: 200,
+              height: 120,
               child: GridView.count(
                 crossAxisCount: 3,
                 children: <Widget>[
@@ -233,7 +233,7 @@ class _MainMenuState extends State<MainMenu> {
                       padding: const EdgeInsets.all(20),
                       color: Colors.orange,
                       child: Column(
-                        children: [
+                        children: const [
                           Icon(Icons.person),
                           Text(
                             "Account",
@@ -250,7 +250,7 @@ class _MainMenuState extends State<MainMenu> {
                         children: const [
                           Icon(Icons.event),
                           Text(
-                            "Event University",
+                            "Event Univ",
                             textAlign: TextAlign.center,
                           ),
                         ],
