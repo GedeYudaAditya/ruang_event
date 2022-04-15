@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ruang_event/pages/detailed_event.dart';
+import 'package:ruang_event/pages/edit_event_page.dart';
 import 'package:ruang_event/pages/favorite_page.dart';
 import 'package:ruang_event/pages/mbkm_page.dart';
 import 'package:ruang_event/pages/my_event_page.dart';
+import 'package:ruang_event/pages/search_page.dart';
 import 'package:ruang_event/pages/univ.dart';
 import 'package:ruang_event/slide_menu.dart';
 import 'package:ruang_event/pages/main_menu.dart';
