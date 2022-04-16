@@ -23,7 +23,7 @@ class MBKMPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: const <Widget>[
           Text(
-            "MBKM Page",
+            "MBKM Pagse",
           ),
         ],
       ),
