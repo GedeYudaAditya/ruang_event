@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login/home_page.dart';
+import 'package:ruang_event/pages/login/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       initialValue: '',
       obscureText: true,
       decoration: InputDecoration(
-          icon: Icon(Icons.lock),
+        icon: Icon(Icons.lock),
         hintText: 'Password',
         contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
