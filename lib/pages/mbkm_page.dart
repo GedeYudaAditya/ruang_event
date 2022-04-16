@@ -45,7 +45,7 @@ class MBKMPage extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(left: 10, right: 10),
           child: Text(
-            'Kamu bisa melihat informasi terkait program magam bersertifikat yang ditawarkan oleh Kemendikbudristek : ',
+            'Kamu bisa melihat informasi terkait program magang bersertifikat yang ditawarkan oleh Kemendikbudristek : ',
             style: TextStyle(fontSize: 16),
           ),
         ),
