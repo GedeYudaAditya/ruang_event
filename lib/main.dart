@@ -72,8 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   static final List<Widget> _pages = <Widget>[
-    LoginPage(),
-    const RegisterPage(),
+    UnivPage(),
     const FavoritePage(),
     const MainMenu(),
     const MyEventPage(),

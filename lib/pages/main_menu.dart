@@ -1,6 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ruang_event/pages/account.dart';
+import 'package:ruang_event/pages/detailed_event.dart';
+import 'package:ruang_event/pages/setting.dart';
+import 'package:ruang_event/pages/univ.dart';
 //import 'package:flutter/foundation.dart';
 /*
 ===============================================================================
@@ -139,31 +143,38 @@ class _MainMenuState extends State<MainMenu> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return Card(
-                  child: Column(children: [
-                    Container(
+                return InkWell(
+                  onTap: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) => const DetailedEvent());
+                    Navigator.push(context, route);
+                  },
+                  child: Card(
+                    child: Column(children: [
+                      Container(
+                          width: 200,
+                          height: 130,
+                          // padding: const EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    "images/ral.jpg",
+                                  ),
+                                  fit: BoxFit.cover))),
+                      Container(
                         width: 200,
-                        height: 130,
-                        // padding: const EdgeInsets.all(10),
-                        alignment: Alignment.center,
-                        decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "images/ral.jpg",
-                                ),
-                                fit: BoxFit.cover))),
-                    Container(
-                      width: 200,
-                      height: 60,
-                      alignment: Alignment.topLeft,
-                      padding: const EdgeInsets.all(10),
-                      child: const Text("Fluffy Boy",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "Gill Sans MT")),
-                    )
-                  ]),
+                        height: 60,
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.all(10),
+                        child: const Text("Fluffy Boy",
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Gill Sans MT")),
+                      )
+                    ]),
+                  ),
                 );
               },
               itemCount: konten.length,
@@ -183,31 +194,38 @@ class _MainMenuState extends State<MainMenu> {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return Card(
-                  child: Column(children: [
-                    Container(
+                return InkWell(
+                  onTap: () {
+                    Route route = MaterialPageRoute(
+                        builder: (context) => const DetailedEvent());
+                    Navigator.push(context, route);
+                  },
+                  child: Card(
+                    child: Column(children: [
+                      Container(
+                          width: 200,
+                          height: 130,
+                          // padding: const EdgeInsets.all(10),
+                          alignment: Alignment.center,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                    "images/ral.jpg",
+                                  ),
+                                  fit: BoxFit.cover))),
+                      Container(
                         width: 200,
-                        height: 130,
-                        // padding: const EdgeInsets.all(10),
-                        alignment: Alignment.center,
-                        decoration: const BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(
-                                  "images/ral.jpg",
-                                ),
-                                fit: BoxFit.cover))),
-                    Container(
-                      width: 200,
-                      height: 60,
-                      alignment: Alignment.topLeft,
-                      padding: const EdgeInsets.all(10),
-                      child: const Text("Fluffy Boy",
-                          style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "Gill Sans MT")),
-                    )
-                  ]),
+                        height: 60,
+                        alignment: Alignment.topLeft,
+                        padding: const EdgeInsets.all(10),
+                        child: const Text("Fluffy Boy",
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "Gill Sans MT")),
+                      )
+                    ]),
+                  ),
                 );
               },
               itemCount: konten.length,
@@ -227,48 +245,69 @@ class _MainMenuState extends State<MainMenu> {
               child: GridView.count(
                 crossAxisCount: 3,
                 children: <Widget>[
-                  Container(
-                      height: 200,
-                      margin: const EdgeInsets.all(10),
-                      padding: const EdgeInsets.all(20),
-                      color: Colors.orange,
-                      child: Column(
-                        children: const [
-                          Icon(Icons.person),
-                          Text(
-                            "Account",
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      )),
-                  Container(
-                      height: 200,
-                      margin: const EdgeInsets.all(10),
-                      padding: const EdgeInsets.all(20),
-                      color: Colors.blue,
-                      child: Column(
-                        children: const [
-                          Icon(Icons.event),
-                          Text(
-                            "Event Univ",
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      )),
-                  Container(
-                      height: 200,
-                      margin: const EdgeInsets.all(10),
-                      padding: const EdgeInsets.all(20),
-                      color: Colors.purple,
-                      child: Column(
-                        children: const [
-                          Icon(Icons.settings),
-                          Text(
-                            "Setting",
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      )),
+                  InkWell(
+                    onTap: () {
+                      Route route = MaterialPageRoute(
+                          builder: (context) => const AccountPage());
+                      Navigator.push(context, route);
+                    },
+                    child: Container(
+                        height: 200,
+                        margin: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(20),
+                        color: Colors.orange,
+                        child: Column(
+                          children: const [
+                            Icon(Icons.person),
+                            Text(
+                              "Account",
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        )),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Route route =
+                          MaterialPageRoute(builder: (context) => UnivPage());
+                      Navigator.push(context, route);
+                    },
+                    child: Container(
+                        height: 200,
+                        margin: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(20),
+                        color: Colors.blue,
+                        child: Column(
+                          children: const [
+                            Icon(Icons.event),
+                            Text(
+                              "Event Univ",
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        )),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Route route = MaterialPageRoute(
+                          builder: (context) => const SettingPage());
+                      Navigator.push(context, route);
+                    },
+                    child: Container(
+                        height: 200,
+                        margin: const EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(20),
+                        color: Colors.purple,
+                        child: Column(
+                          children: const [
+                            Icon(Icons.settings),
+                            Text(
+                              "Setting",
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        )),
+                  ),
                 ],
               ))
         ],

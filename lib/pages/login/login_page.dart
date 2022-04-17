@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:ruang_event/pages/login/home_page.dart';
+import 'package:ruang_event/pages/register.dart';
 
 class LoginPage extends StatefulWidget {
   static String tag = 'login-page';
@@ -66,7 +69,11 @@ class _LoginPageState extends State<LoginPage> {
         'First Time? Create Account',
         style: TextStyle(color: Colors.orangeAccent),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Route route =
+            MaterialPageRoute(builder: (context) => const RegisterPage());
+        Navigator.push(context, route);
+      },
     );
 
     return Scaffold(

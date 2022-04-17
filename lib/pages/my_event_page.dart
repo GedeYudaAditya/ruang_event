@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:ruang_event/pages/edit_event_page.dart';
 
 /*
 ===============================================================================
@@ -61,7 +62,11 @@ class _MyEventPageState extends State<MyEventPage> {
               style: TextStyle(color: Colors.white),
             ),
             color: Colors.orange,
-            onPressed: () {},
+            onPressed: () {
+              Route route = MaterialPageRoute(
+                  builder: (context) => const EditEventPage());
+              Navigator.push(context, route);
+            },
           ),
           Container(
             alignment: Alignment.centerLeft,

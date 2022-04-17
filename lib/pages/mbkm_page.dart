@@ -27,7 +27,7 @@ class MBKMPage extends StatelessWidget {
               child: Image.network(
                   'https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-pegunungan1.jpg')),
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 10, right: 10),
           child: Text(
             'Program Merdeka Belajar Kampus Merdeka ',
@@ -37,12 +37,12 @@ class MBKMPage extends StatelessWidget {
             ),
           ),
         ),
-        Divider(
+        const Divider(
           height: 12,
           thickness: 4,
           color: Colors.black,
         ),
-        Padding(
+        const Padding(
           padding: EdgeInsets.only(left: 10, right: 10),
           child: Text(
             'Kamu bisa melihat informasi terkait program magang bersertifikat yang ditawarkan oleh Kemendikbudristek : ',
@@ -74,7 +74,8 @@ class MBKMPage extends StatelessWidget {
                                 borderRadius:
                                     BorderRadius.circular(11), // Image border
                                 child: SizedBox.fromSize(
-                                  size: Size.fromRadius(48), // Image radius
+                                  size:
+                                      const Size.fromRadius(48), // Image radius
                                   child: Image.network(
                                       'http://cdn130.picsart.com/259803787000202.jpg',
                                       fit: BoxFit.cover),
@@ -83,8 +84,9 @@ class MBKMPage extends StatelessWidget {
                               Column(
                                 children: <Widget>[
                                   Padding(
-                                    padding: EdgeInsets.only(left: 5, top: 5),
-                                    child: Row(children: <Widget>[
+                                    padding:
+                                        const EdgeInsets.only(left: 5, top: 5),
+                                    child: Row(children: const <Widget>[
                                       Text(
                                         'Bangkit by Google, Goto, Traveloka',
                                         textAlign: TextAlign.justify,
@@ -96,9 +98,10 @@ class MBKMPage extends StatelessWidget {
                                     ]),
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.only(left: 5, top: 5),
-                                    child: Row(children: <Widget>[
-                                      Container(
+                                    padding:
+                                        const EdgeInsets.only(left: 5, top: 5),
+                                    child: Row(children: const <Widget>[
+                                      SizedBox(
                                           width: 250,
                                           child: Padding(
                                             padding: EdgeInsets.only(left: 5),

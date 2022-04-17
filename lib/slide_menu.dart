@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ruang_event/pages/favorite_page.dart';
+import 'package:ruang_event/pages/login/login_page.dart';
+import 'package:ruang_event/pages/main_menu.dart';
+import 'package:ruang_event/pages/mbkm_page.dart';
+import 'package:ruang_event/pages/my_event_page.dart';
+import 'package:ruang_event/pages/setting.dart';
+import 'package:ruang_event/pages/univ.dart';
 
 /*
 ===============================================================================
@@ -34,40 +41,67 @@ class DrawerWidget extends StatelessWidget {
         children: <Widget>[
           _drawerHeader(),
           ListTile(
-            leading: Icon(Icons.home_filled),
-            title: Text("Home"),
-            onTap: () {},
+            leading: const Icon(Icons.home_filled),
+            title: const Text("Home"),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => const MainMenu());
+              Navigator.push(context, route);
+            },
           ),
           ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text("Favorite"),
-            onTap: () {},
+            leading: const Icon(Icons.favorite),
+            title: const Text("Favorite"),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => const FavoritePage());
+              Navigator.push(context, route);
+            },
           ),
           ListTile(
-            leading: Icon(Icons.account_balance),
-            title: Text("Univercity Events"),
-            onTap: () {},
+            leading: const Icon(Icons.account_balance),
+            title: const Text("Univercity Events"),
+            onTap: () {
+              Route route = MaterialPageRoute(builder: (context) => UnivPage());
+              Navigator.push(context, route);
+            },
           ),
           ListTile(
-            leading: Icon(Icons.emoji_flags),
-            title: Text("My Events"),
-            onTap: () {},
+            leading: const Icon(Icons.emoji_flags),
+            title: const Text("My Events"),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => const MyEventPage());
+              Navigator.push(context, route);
+            },
           ),
           ListTile(
-            leading: Icon(Icons.share),
-            title: Text("MBKM Programs"),
-            onTap: () {},
+            leading: const Icon(Icons.share),
+            title: const Text("MBKM Programs"),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => const MBKMPage());
+              Navigator.push(context, route);
+            },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text("Settings"),
-            onTap: () {},
+            leading: const Icon(Icons.settings),
+            title: const Text("Settings"),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => const SettingPage());
+              Navigator.push(context, route);
+            },
           ),
-          Divider(height: 1, thickness: 1),
+          const Divider(height: 1, thickness: 1),
           ListTile(
-            leading: Icon(Icons.logout),
-            title: Text("Logout"),
-            onTap: () {},
+            leading: const Icon(Icons.logout),
+            title: const Text("Logout"),
+            onTap: () {
+              Route route =
+                  MaterialPageRoute(builder: (context) => LoginPage());
+              Navigator.push(context, route);
+            },
           ),
         ],
       ),
