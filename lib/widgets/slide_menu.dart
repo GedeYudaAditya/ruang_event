@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ruang_event/pages/favorite_page.dart';
+import 'package:ruang_event/screens/favorite_page.dart';
 import 'package:ruang_event/pages/login/login_page.dart';
-import 'package:ruang_event/pages/main_menu.dart';
-import 'package:ruang_event/pages/mbkm_page.dart';
-import 'package:ruang_event/pages/my_event_page.dart';
-import 'package:ruang_event/pages/setting.dart';
-import 'package:ruang_event/pages/univ.dart';
+import 'package:ruang_event/screens/home.dart';
+import 'package:ruang_event/screens/main_menu.dart';
+import 'package:ruang_event/screens/mbkm_page.dart';
+import 'package:ruang_event/screens/my_event_page.dart';
+import 'package:ruang_event/screens/setting.dart';
+import 'package:ruang_event/screens/univ.dart';
 
 /*
 ===============================================================================
@@ -40,56 +41,59 @@ class DrawerWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           _drawerHeader(),
-          ListTile(
-            leading: const Icon(Icons.home_filled),
-            title: const Text("Home"),
-            onTap: () {
-              Route route =
-                  MaterialPageRoute(builder: (context) => const MainMenu());
-              Navigator.push(context, route);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.favorite),
-            title: const Text("Favorite"),
-            onTap: () {
-              Route route =
-                  MaterialPageRoute(builder: (context) => const FavoritePage());
-              Navigator.push(context, route);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.account_balance),
-            title: const Text("Univercity Events"),
-            onTap: () {
-              Route route = MaterialPageRoute(builder: (context) => UnivPage());
-              Navigator.push(context, route);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.emoji_flags),
-            title: const Text("My Events"),
-            onTap: () {
-              Route route =
-                  MaterialPageRoute(builder: (context) => const MyEventPage());
-              Navigator.push(context, route);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.share),
-            title: const Text("MBKM Programs"),
-            onTap: () {
-              Route route =
-                  MaterialPageRoute(builder: (context) => const MBKMPage());
-              Navigator.push(context, route);
-            },
-          ),
+          // ListTile(
+          //   leading: const Icon(Icons.home_filled),
+          //   title: const Text("Home"),
+          //   onTap: () {
+          //     // Route route =
+          //     //     MaterialPageRoute(builder: (context) => const MainMenu());
+          //     // Navigator.push(context, route);
+          //     Navigator.pushNamed(context, HomeScreen.routeName);
+          //   },
+          // ),
+          // ListTile(
+          //   leading: const Icon(Icons.favorite),
+          //   title: const Text("Favorite"),
+          //   onTap: () {
+          //     // Route route = MaterialPageRoute(
+          //     //     builder: (context) => const FavoriteScreen());
+          //     // Navigator.push(context, route);
+          //     Navigator.pushNamed(context, FavoriteScreen.routeName);
+          //   },
+          // ),
+          // ListTile(
+          //   leading: const Icon(Icons.account_balance),
+          //   title: const Text("Univercity Events"),
+          //   onTap: () {
+          //     Route route =
+          //         MaterialPageRoute(builder: (context) => UnivScreen());
+          //     Navigator.push(context, route);
+          //   },
+          // ),
+          // ListTile(
+          //   leading: const Icon(Icons.emoji_flags),
+          //   title: const Text("My Events"),
+          //   onTap: () {
+          //     Route route =
+          //         MaterialPageRoute(builder: (context) => const MyEventPage());
+          //     Navigator.push(context, route);
+          //   },
+          // ),
+          // ListTile(
+          //   leading: const Icon(Icons.share),
+          //   title: const Text("MBKM Programs"),
+          //   onTap: () {
+          //     Route route =
+          //         MaterialPageRoute(builder: (context) => const MBKMPage());
+          //     Navigator.push(context, route);
+          //   },
+          // ),
           ListTile(
             leading: const Icon(Icons.settings),
             title: const Text("Settings"),
             onTap: () {
-              Route route =
-                  MaterialPageRoute(builder: (context) => const SettingPage());
+              Route route = MaterialPageRoute(
+                  builder: (context) => const SettingScreen());
               Navigator.push(context, route);
             },
           ),

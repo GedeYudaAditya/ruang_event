@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:ruang_event/pages/account.dart';
-import 'package:ruang_event/pages/detailed_event.dart';
-import 'package:ruang_event/pages/setting.dart';
-import 'package:ruang_event/pages/univ.dart';
+import 'package:ruang_event/screens/account.dart';
+import 'package:ruang_event/screens/detailed_event.dart';
+import 'package:ruang_event/screens/setting.dart';
+import 'package:ruang_event/screens/univ.dart';
 //import 'package:flutter/foundation.dart';
 /*
 ===============================================================================
@@ -269,7 +269,7 @@ class _MainMenuState extends State<MainMenu> {
                   InkWell(
                     onTap: () {
                       Route route =
-                          MaterialPageRoute(builder: (context) => UnivPage());
+                          MaterialPageRoute(builder: (context) => UnivScreen());
                       Navigator.push(context, route);
                     },
                     child: Container(
@@ -290,7 +290,7 @@ class _MainMenuState extends State<MainMenu> {
                   InkWell(
                     onTap: () {
                       Route route = MaterialPageRoute(
-                          builder: (context) => const SettingPage());
+                          builder: (context) => const SettingScreen());
                       Navigator.push(context, route);
                     },
                     child: Container(

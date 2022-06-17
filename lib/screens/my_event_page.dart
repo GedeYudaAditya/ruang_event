@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:ruang_event/pages/edit_event_page.dart';
+import 'package:ruang_event/screens/edit_event_page.dart';
 
 /*
 ===============================================================================
