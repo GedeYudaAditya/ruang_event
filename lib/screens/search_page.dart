@@ -44,7 +44,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: ListView(
         children: <Widget>[
           Row(
@@ -147,8 +147,8 @@ class _SearchPageState extends State<SearchPage> {
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage(
-                                  "images/ral.jpg",
+                                image: NetworkImage(
+                                  "https://1.bp.blogspot.com/-lTJvQzNtTRw/XMTxH9UGFCI/AAAAAAAAPFQ/iVfu94tODOQ_AVuG1m-zN1Hl4NcipaCIACLcBGAs/s1600/event.png",
                                 ),
                                 fit: BoxFit.cover))),
                     Container(
@@ -156,7 +156,7 @@ class _SearchPageState extends State<SearchPage> {
                       height: 60,
                       alignment: Alignment.topLeft,
                       padding: const EdgeInsets.all(10),
-                      child: const Text("Fluffy Boy",
+                      child: const Text("Blablabla Event",
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
@@ -191,8 +191,8 @@ class _SearchPageState extends State<SearchPage> {
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage(
-                                  "images/ral.jpg",
+                                image: NetworkImage(
+                                  "https://1.bp.blogspot.com/-lTJvQzNtTRw/XMTxH9UGFCI/AAAAAAAAPFQ/iVfu94tODOQ_AVuG1m-zN1Hl4NcipaCIACLcBGAs/s1600/event.png",
                                 ),
                                 fit: BoxFit.cover))),
                     Container(
@@ -200,7 +200,7 @@ class _SearchPageState extends State<SearchPage> {
                       height: 60,
                       alignment: Alignment.topLeft,
                       padding: const EdgeInsets.all(10),
-                      child: const Text("Fluffy Boy",
+                      child: const Text("Blablabla Event",
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
@@ -235,8 +235,8 @@ class _SearchPageState extends State<SearchPage> {
                         alignment: Alignment.center,
                         decoration: const BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage(
-                                  "images/ral.jpg",
+                                image: NetworkImage(
+                                  "https://1.bp.blogspot.com/-lTJvQzNtTRw/XMTxH9UGFCI/AAAAAAAAPFQ/iVfu94tODOQ_AVuG1m-zN1Hl4NcipaCIACLcBGAs/s1600/event.png",
                                 ),
                                 fit: BoxFit.cover))),
                     Container(
@@ -244,7 +244,7 @@ class _SearchPageState extends State<SearchPage> {
                       height: 60,
                       alignment: Alignment.topLeft,
                       padding: const EdgeInsets.all(10),
-                      child: const Text("Fluffy Boy",
+                      child: const Text("Blablabla Event",
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,

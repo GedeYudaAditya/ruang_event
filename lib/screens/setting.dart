@@ -73,7 +73,7 @@ class SettingScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DetailedEvent(),
+                    builder: (context) => DetailedEventScreen(),
                   ),
                 );
               },
@@ -101,7 +101,7 @@ class SettingScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DetailedEvent(),
+                    builder: (context) => DetailedEventScreen(),
                   ),
                 );
               },
@@ -129,7 +129,7 @@ class SettingScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DetailedEvent(),
+                    builder: (context) => DetailedEventScreen(),
                   ),
                 );
               },
@@ -155,7 +155,7 @@ class SettingScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DetailedEvent(),
+                    builder: (context) => DetailedEventScreen(),
                   ),
                 );
               },

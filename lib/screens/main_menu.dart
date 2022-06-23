@@ -1,10 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:ruang_event/screens/account.dart';
 import 'package:ruang_event/screens/detailed_event.dart';
 import 'package:ruang_event/screens/setting.dart';
 import 'package:ruang_event/screens/univ.dart';
+
+import '../providers/pages_data.dart';
 //import 'package:flutter/foundation.dart';
 /*
 ===============================================================================
@@ -48,9 +51,11 @@ class _MainMenuState extends State<MainMenu> {
 
   @override
   Widget build(BuildContext context) {
+    Pages setNavbar = Provider.of<Pages>(context);
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: ListView(
+        shrinkWrap: true,
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -141,13 +146,15 @@ class _MainMenuState extends State<MainMenu> {
           SizedBox(
             height: 200.0,
             child: ListView.builder(
+              shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    Route route = MaterialPageRoute(
-                        builder: (context) => const DetailedEvent());
-                    Navigator.push(context, route);
+                    // Route route = MaterialPageRoute(
+                    //     builder: (context) => const DetailedEventScreen());
+                    Navigator.pushNamed(context, DetailedEventScreen.routeName);
                   },
                   child: Card(
                     child: Column(children: [
@@ -158,8 +165,8 @@ class _MainMenuState extends State<MainMenu> {
                           alignment: Alignment.center,
                           decoration: const BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage(
-                                    "images/ral.jpg",
+                                  image: NetworkImage(
+                                    "https://1.bp.blogspot.com/-lTJvQzNtTRw/XMTxH9UGFCI/AAAAAAAAPFQ/iVfu94tODOQ_AVuG1m-zN1Hl4NcipaCIACLcBGAs/s1600/event.png",
                                   ),
                                   fit: BoxFit.cover))),
                       Container(
@@ -167,7 +174,7 @@ class _MainMenuState extends State<MainMenu> {
                         height: 60,
                         alignment: Alignment.topLeft,
                         padding: const EdgeInsets.all(10),
-                        child: const Text("Fluffy Boy",
+                        child: const Text("Blablabla Event",
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
@@ -192,13 +199,15 @@ class _MainMenuState extends State<MainMenu> {
           SizedBox(
             height: 200.0,
             child: ListView.builder(
+              shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return InkWell(
                   onTap: () {
-                    Route route = MaterialPageRoute(
-                        builder: (context) => const DetailedEvent());
-                    Navigator.push(context, route);
+                    // Route route = MaterialPageRoute(
+                    //     builder: (context) => const DetailedEventScreen());
+                    Navigator.pushNamed(context, DetailedEventScreen.routeName);
                   },
                   child: Card(
                     child: Column(children: [
@@ -209,8 +218,8 @@ class _MainMenuState extends State<MainMenu> {
                           alignment: Alignment.center,
                           decoration: const BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage(
-                                    "images/ral.jpg",
+                                  image: NetworkImage(
+                                    "https://1.bp.blogspot.com/-lTJvQzNtTRw/XMTxH9UGFCI/AAAAAAAAPFQ/iVfu94tODOQ_AVuG1m-zN1Hl4NcipaCIACLcBGAs/s1600/event.png",
                                   ),
                                   fit: BoxFit.cover))),
                       Container(
@@ -218,7 +227,7 @@ class _MainMenuState extends State<MainMenu> {
                         height: 60,
                         alignment: Alignment.topLeft,
                         padding: const EdgeInsets.all(10),
-                        child: const Text("Fluffy Boy",
+                        child: const Text("Blablabla Event",
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,
@@ -241,15 +250,15 @@ class _MainMenuState extends State<MainMenu> {
                 )),
           ),
           Container(
-              height: 120,
+              height: 130,
               child: GridView.count(
                 crossAxisCount: 3,
                 children: <Widget>[
                   InkWell(
                     onTap: () {
-                      Route route = MaterialPageRoute(
-                          builder: (context) => const AccountPage());
-                      Navigator.push(context, route);
+                      // Route route = MaterialPageRoute(
+                      //     builder: (context) => const AccountPage());
+                      Navigator.pushNamed(context, AccountScreen.routeName);
                     },
                     child: Container(
                         height: 200,
@@ -268,9 +277,10 @@ class _MainMenuState extends State<MainMenu> {
                   ),
                   InkWell(
                     onTap: () {
-                      Route route =
-                          MaterialPageRoute(builder: (context) => UnivScreen());
-                      Navigator.push(context, route);
+                      // Route route =
+                      //     MaterialPageRoute(builder: (context) => UnivScreen());
+                      // Navigator.pushNamed(context, UnivScreen.routeName);
+                      setNavbar.setSelectedNavbar(value: 0);
                     },
                     child: Container(
                         height: 200,
@@ -289,9 +299,9 @@ class _MainMenuState extends State<MainMenu> {
                   ),
                   InkWell(
                     onTap: () {
-                      Route route = MaterialPageRoute(
-                          builder: (context) => const SettingScreen());
-                      Navigator.push(context, route);
+                      // Route route = MaterialPageRoute(
+                      //     builder: (context) => const SettingScreen());
+                      Navigator.pushNamed(context, "/setting");
                     },
                     child: Container(
                         height: 200,
@@ -318,9 +328,11 @@ class _MainMenuState extends State<MainMenu> {
   void _getTime() {
     final DateTime now = DateTime.now();
     final Map formattedDateTime = _formatDateTime(now);
-    setState(() {
-      _tgl = formattedDateTime;
-    });
+    if (mounted) {
+      setState(() {
+        _tgl = formattedDateTime;
+      });
+    }
   }
 
   Map _formatDateTime(DateTime dateTime) {

@@ -16,19 +16,20 @@ Note          :
 1. [Yuda] ==> Selamat bekerja :)
 ===============================================================================
 */
-class MyEventPage extends StatefulWidget {
-  const MyEventPage({Key? key}) : super(key: key);
+class MyEventScreen extends StatefulWidget {
+  const MyEventScreen({Key? key}) : super(key: key);
 
   @override
-  State<MyEventPage> createState() => _MyEventPageState();
+  State<MyEventScreen> createState() => _MyEventScreenState();
 }
 
-class _MyEventPageState extends State<MyEventPage> {
+class _MyEventScreenState extends State<MyEventScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
-      child: ListView(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        // shrinkWrap: true,
         children: <Widget>[
           Container(
             alignment: Alignment.centerLeft,
@@ -63,9 +64,9 @@ class _MyEventPageState extends State<MyEventPage> {
             ),
             color: Colors.orange,
             onPressed: () {
-              Route route = MaterialPageRoute(
-                  builder: (context) => const EditEventPage());
-              Navigator.push(context, route);
+              // Route route = MaterialPageRoute(
+              //     builder: (context) => const EditEventScreen());
+              Navigator.pushNamed(context, EditEventScreen.routeName);
             },
           ),
           Container(
@@ -79,8 +80,10 @@ class _MyEventPageState extends State<MyEventPage> {
                 )),
           ),
           SizedBox(
-            height: 600,
+            height: MediaQuery.of(context).size.height - 262,
             child: ListView.builder(
+              shrinkWrap: true,
+              physics: const ClampingScrollPhysics(),
               itemBuilder: (context, index) {
                 return Card(
                   child: Padding(
@@ -93,14 +96,14 @@ class _MyEventPageState extends State<MyEventPage> {
                           alignment: Alignment.center,
                           decoration: const BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage(
-                                    "images/ral.jpg",
+                                  image: NetworkImage(
+                                    "https://1.bp.blogspot.com/-lTJvQzNtTRw/XMTxH9UGFCI/AAAAAAAAPFQ/iVfu94tODOQ_AVuG1m-zN1Hl4NcipaCIACLcBGAs/s1600/event.png",
                                   ),
                                   fit: BoxFit.cover))),
                       Container(
                         alignment: Alignment.topLeft,
                         padding: const EdgeInsets.all(10),
-                        child: const Text("Fluffy Boy",
+                        child: const Text("Blablabla Event",
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.bold,

@@ -25,83 +25,48 @@ Note          :
 */
 
 class UnivScreen extends StatelessWidget {
-  UnivScreen({Key? key}) : super(key: key);
+  const UnivScreen({Key? key}) : super(key: key);
+
+  static const String routeName = '/univ';
+
   @override
   Widget build(BuildContext context) {
-    // "undiksha.png", "padjajaran.png", "brawijaya.png", "ugm.png"
-    // "Universitas Pendidikan Ganesha",
-    // "Universitas Brawijaya",
-    // "Universitas Padjajaran ",
-    // "Universitas Gadjah Mada",
-
-    List<Map<String, String>> datas = [
-      {
-        "nama": "Universitas Pendidikan Ganesha",
-        "desc": "Deskripsi di sini",
-        "picture": "undiksha.png",
-        "location": "Singaraja"
-      },
-      {
-        "nama": "Universitas Brawijaya",
-        "desc": "Deskripsi di sini",
-        "picture": "brawijaya.png",
-        "location": "Unknown"
-      },
-      {
-        "nama": "Universitas Padjajaran",
-        "desc": "Deskripsi di sini",
-        "picture": "padjajaran.png",
-        "location": "Unknown"
-      },
-      {
-        "nama": "Universitas Gadjah Mada",
-        "desc": "Deskripsi di sini",
-        "picture": "ugm.png",
-        "location": "Unknown"
-      },
-    ];
-
-    for (int i = 0; i < datas.length; i++) {
-      Universitas univ = Universitas(
-          namaUniv: datas[i]["nama"],
-          descUniv: datas[i]["desc"],
-          location: datas[i]["location"],
-          picture: datas[i]["picture"]);
-      Provider.of<Univs>(context).addUniversitas(univ);
-    }
-
     List<Map<String, String>> universitas = Provider.of<Univs>(context).data;
-    print(universitas[0]["picture"]);
-    return Container(
-      padding: EdgeInsets.all(20),
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return Card(
-              color: Color.fromARGB(255, 188, 192, 198),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.only(right: 10),
-                      child: Image.asset(
-                          'assets/images/' + universitas[index]["picture"]!,
-                          height: 50,
-                          width: 50),
-                    ),
-                    Container(
-                        alignment: Alignment.centerLeft,
-                        height: 60,
-                        child: Text(
-                          universitas[index]["nama"]!,
-                          style: TextStyle(fontSize: 20),
-                        )),
-                  ],
-                ),
-              ));
-        },
-        itemCount: universitas.length,
-      ),
-    );
+    print(universitas.length);
+    if (universitas.isNotEmpty) {
+      return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return Card(
+                color: const Color.fromARGB(255, 188, 192, 198),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(right: 10),
+                        child: Image.asset(
+                            'assets/images/' + universitas[index]["picture"]!,
+                            height: 50,
+                            width: 50),
+                      ),
+                      Container(
+                          alignment: Alignment.centerLeft,
+                          height: 60,
+                          child: Text(
+                            universitas[index]["nama"]!,
+                            style: const TextStyle(fontSize: 20),
+                          )),
+                    ],
+                  ),
+                ));
+          },
+          itemCount: universitas.length,
+        ),
+      );
+    } else {
+      return const Center(child: CircularProgressIndicator());
+    }
   }
 }

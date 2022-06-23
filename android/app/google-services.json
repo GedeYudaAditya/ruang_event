@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "726510378829",
+    "project_id": "ruang-event",
+    "storage_bucket": "ruang-event.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726510378829:android:e45e5603771e414bd76104",
+        "android_client_info": {
+          "package_name": "com.hopesanddreams.ruang_event"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "726510378829-itgo3l6a05prcqejish8ql0l6342badh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hopesanddreams.ruang_event",
+            "certificate_hash": "edff42b450103ef22df47d10bf73add9b726a4a4"
+          }
+        },
+        {
+          "client_id": "726510378829-cnrtuklcbg5dptajrhon82h3bnvsnkmn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8k09U5b60J4QovxQetBZ3qN1wVj4mDLM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "726510378829-cnrtuklcbg5dptajrhon82h3bnvsnkmn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

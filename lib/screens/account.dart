@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../models/user.dart';
 import 'detailed_event.dart';
 
 /*
@@ -17,11 +19,17 @@ Note          :
 ===============================================================================
 */
 
-class AccountPage extends StatelessWidget {
-  const AccountPage({Key? key}) : super(key: key);
+class AccountScreen extends StatelessWidget {
+  const AccountScreen({Key? key}) : super(key: key);
+
+  static const String routeName = '/account';
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<Users?>(context);
+    String username = user!.username.toString();
+    String email = user.email.toString();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Account'),
@@ -33,7 +41,10 @@ class AccountPage extends StatelessWidget {
           Center(
             child: ClipRRect(
               borderRadius: BorderRadius.all(Radius.circular(150)),
-              child: Image.asset('images/ral.jpg', width: 150, height: 150),
+              child: Image.network(
+                  'https://randomuser.me/api/portraits/women/37.jpg',
+                  width: 150,
+                  height: 150),
             ),
           ),
           Container(
@@ -51,7 +62,7 @@ class AccountPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Kelompok 2',
+                    username,
                     style: TextStyle(
                       fontSize: 16,
                       fontFamily: 'TrajanPro_Bold',
@@ -71,7 +82,7 @@ class AccountPage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'Kelompok2@undiksha.ac.id',
+                          email,
                           style: TextStyle(
                             fontSize: 16,
                             fontFamily: 'TrajanPro_Bold',

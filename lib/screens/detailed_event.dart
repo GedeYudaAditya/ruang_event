@@ -15,19 +15,25 @@ Note          :
 1. [Yuda] ==> Selamat bekerja :)
 ===============================================================================
 */
-class DetailedEvent extends StatefulWidget {
-  const DetailedEvent({Key? key}) : super(key: key);
+class DetailedEventScreen extends StatefulWidget {
+  const DetailedEventScreen({Key? key}) : super(key: key);
+
+  static const String routeName = '/detailed_event';
 
   @override
-  State<DetailedEvent> createState() => _DetailedEventState();
+  State<DetailedEventScreen> createState() => _DetailedEventScreenState();
 }
 
-class _DetailedEventState extends State<DetailedEvent> {
+class _DetailedEventScreenState extends State<DetailedEventScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Event Detail"),
+        backgroundColor: const Color.fromARGB(255, 13, 93, 158),
+      ),
       body: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: ListView(
           children: <Widget>[
             Container(
@@ -36,8 +42,8 @@ class _DetailedEventState extends State<DetailedEvent> {
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(
-                          "images/ral.jpg",
+                        image: NetworkImage(
+                          "https://1.bp.blogspot.com/-lTJvQzNtTRw/XMTxH9UGFCI/AAAAAAAAPFQ/iVfu94tODOQ_AVuG1m-zN1Hl4NcipaCIACLcBGAs/s1600/event.png",
                         ),
                         fit: BoxFit.cover))),
             Container(
@@ -80,8 +86,9 @@ class _DetailedEventState extends State<DetailedEvent> {
                 children: [
                   const ClipOval(
                     child: Image(
-                        height: 70,
-                        image: AssetImage('images/ral.jpg'),
+                        height: 60,
+                        image: NetworkImage(
+                            'https://randomuser.me/api/portraits/women/37.jpg'),
                         fit: BoxFit.cover),
                   ),
                   Container(
@@ -155,7 +162,7 @@ class _DetailedEventState extends State<DetailedEvent> {
                   ),
                   const Icon(
                     Icons.date_range,
-                    size: 90.0,
+                    size: 60.0,
                   ),
                 ],
               ),

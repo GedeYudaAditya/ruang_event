@@ -13,7 +13,7 @@ class Pages with ChangeNotifier {
     ChangeNotifierProvider(create: (context) => Univs(), child: UnivScreen()),
     const FavoriteScreen(),
     const MainMenu(),
-    const MyEventPage(),
+    const MyEventScreen(),
     const MBKMPage(),
   ];
 

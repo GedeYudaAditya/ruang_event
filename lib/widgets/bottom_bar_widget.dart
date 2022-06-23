@@ -28,11 +28,14 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
         BottomNavigationBarItem(icon: Icon(Icons.event), label: 'Event'),
         BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorite'),
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
+          icon: Icon(
+            Icons.home,
+            color: Color.fromARGB(0, 25, 118, 210),
+          ),
           label: 'Home',
         ),
         BottomNavigationBarItem(icon: Icon(Icons.flag), label: 'My Event'),
-        BottomNavigationBarItem(icon: Icon(Icons.group), label: 'MBKM'),
+        BottomNavigationBarItem(icon: Icon(Icons.share), label: 'MBKM'),
       ],
       type: BottomNavigationBarType.fixed,
       currentIndex: _selectedNavbar,
